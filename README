@@ -1,0 +1,6 @@
+Simple chrome javascript extension to animate the gif
+photos and gif links on the very important facebook group
+www.facebook.com/groups/animatedgifs.  To install, you can
+just click "raw" from github or anything that links the
+single .user.js file from chrome.  Installs as chrome
+extension and can be removed from there as well.
