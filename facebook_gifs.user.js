@@ -1,10 +1,9 @@
 // ==UserScript==
 // @name           Facebook gif shower
-// @namespace      https://www.facebook.com
 // @description	   Render gif below gif links
-// @author	       Jack Lindamood
-// @include        https://*.facebook.com/groups/animatedgifs
-// @include        http://*.facebook.com/groups/animatedgifs
+// @author         Jack Lindamood
+// @include        https://www.facebook.com/groups/animatedgifs
+// @include        http://www.facebook.com/groups/animatedgifs
 // ==/UserScript==
 
 (function() {
