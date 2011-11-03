@@ -2,8 +2,8 @@
 // @name           Facebook gif shower
 // @description	   Render gif below gif links
 // @author         Jack Lindamood
-// @include        https://www.facebook.com/groups/animatedgifs
-// @include        http://www.facebook.com/groups/animatedgifs
+// @include        https://www.facebook.com/groups/animatedgifs/*
+// @include        http://www.facebook.com/groups/animatedgifs/*
 // ==/UserScript==
 
 alert("Hello from script");
