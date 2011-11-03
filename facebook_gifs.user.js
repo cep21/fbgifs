@@ -6,8 +6,6 @@
 // @include        http://www.facebook.com/groups/animatedgifs/*
 // ==/UserScript==
 
-alert("Hello from script");
-
 (function() {
   linked_before = []
   var imgs = document.images;
