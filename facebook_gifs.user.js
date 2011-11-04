@@ -6,29 +6,21 @@
 // @include        http://www.facebook.com/groups/animatedgifs/*
 // ==/UserScript==
 
-(function() {
-  linked_before = []
-  var imgs = document.images;
-  for (var i = 0; i < imgs.length; i++) {
-    var src_link = imgs[i].src
-    linked_before[imgs[i].src] = true;
-    if (src_link.indexOf("safe_image.php") > -1) {
-      src_link = unescape(src_link.substr(src_link.indexOf('url=') + 4))
-      imgs[i].src = src_link.replace(/\+/g, '%20');
-      linked_before[imgs[i].src] = true;
-    }
+var linked_before = [];
+[].forEach.call(document.images, function(image) {
+  var src = image.src;
+  if (src.indexOf('safe_image.php') !== -1) {
+    var index = src.indexOf('url=') + 4;
+    image.src = decodeURIComponent(src.substr(index)).replace(/\+/g, '%20');
   }
+  linked_before[image.src] = true;
+});
 
-  var links = document.links;
-  for (var i = 0; i < links.length; i++) {
-    var src_link = links[i].href
-    if (src_link.indexOf(".gif") == src_link.length - 4) {
-      if (typeof(linked_before[src_link]) == 'undefined') {
-        var imgEle = document.createElement('img');
-        imgEle.src = src_link;
-        links[i].parentNode.appendChild(imgEle);
-        linked_before[links[i].href] = true;
-      }
-    }
+[].forEach.call(document.links, function(link) {
+  if (!linked_before[link.href] && link.href.substr(-4) === 'gif') {
+    var image = document.createElement('img');
+    image.src = link.href;
+    link.parentNode.insertBefore(image, link.nextSibling);
+    linked_before[link.href] = true;
   }
-})();
+});
