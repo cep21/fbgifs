@@ -17,8 +17,8 @@ var linked_before = [];
 });
 
 [].forEach.call(document.links, function(link) {
-  console.log(link);
   if (!linked_before[link.href] && link.href.substr(-4) === 'gif') {
+	  console.log(link.href);
     var image = document.createElement('img');
     image.src = link.href;
     link.parentNode.insertBefore(image, link.nextSibling);
